@@ -24,8 +24,7 @@ class Twig
         $this->twig = new \Twig_Environment(
             new \Twig_Loader_filesystem($viewpath),
             [
-                // 'cache' => __DIR__ . '/cache',
-                'cache' => $cache,
+                'cache' => __DIR__ . '/cache',
                 'debug' => $debug,
 
             ]
