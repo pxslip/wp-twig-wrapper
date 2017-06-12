@@ -16,9 +16,11 @@ class Twig
      */
     private $twig = null;
 
-    public function __construct($viewpath = null, $cache = false, $debug = false)
+    public function __construct($viewpath, $cache = true, $debug = false)
     {
-        $viewpath = $viewpath ?: dirname(__DIR__). '/views';
+        if (!isset($viewpath)) {
+            throw new Exception("The view path must be set");
+        }
         $this->twig = new \Twig_Environment(
             new \Twig_Loader_filesystem($viewpath),
             [
