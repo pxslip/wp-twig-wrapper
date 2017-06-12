@@ -1,0 +1,17 @@
+{
+    "name": "pxslip/wp-twig-wrapper",
+    "description": "A simple wrapper for the Twig templating engine to make it work in Wordpress plugins",
+    "require": {
+        "twig/twig": "^2.4"
+    },
+    "license": "MIT",
+    "authors": [{
+        "name": "Will Kruse",
+        "email": "wskruse@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "WPTwig\\": "src/"
+        }
+    }
+}
