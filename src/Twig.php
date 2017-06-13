@@ -48,6 +48,9 @@ class Twig
             $attr = $attr ?: '';
             the_post_thumbnail($size, $attr);
         }));
+        $this->twig->addFunction(new Twig_Function('setup_postdata', function ($post) {
+            setup_postdata($post);
+        }));
     }
 
     public function getTwig()
