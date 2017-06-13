@@ -35,13 +35,13 @@ class Twig
     private function addWordpressFunctions()
     {
         $this->twig->addFunction(new Twig_Function('settings_fields', function ($name) {
-            return settings_fields($name);
+            settings_fields($name);
         }));
         $this->twig->addFunction(new Twig_Function('do_settings_sections', function ($name) {
-            return do_settings_sections($name);
+            do_settings_sections($name);
         }));
         $this->twig->addFunction(new Twig_Function('get_option', function ($name) {
-            return get_option($name);
+            get_option($name);
         }));
         $this->twig->addFunction(new Twig_Function('the_post_thumbnail', function ($size, $attr) {
             $size = $size ?: 'medium';
@@ -50,6 +50,9 @@ class Twig
         }));
         $this->twig->addFunction(new Twig_Function('setup_postdata', function ($post) {
             setup_postdata($post);
+        }));
+        $this->twig->addFunction(new Twig_Function('wp_nonce_field', function ($action = -1, $name = '_wpnonce', $referrer = true) {
+            wp_nonce_field($action, $name, $referrer, true);
         }));
     }
 
