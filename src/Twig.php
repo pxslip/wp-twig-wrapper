@@ -52,7 +52,7 @@ class Twig
             setup_postdata($post);
         }));
         $this->twig->addFunction(new Twig_Function('wp_nonce_field', function ($action = -1, $name = '_wpnonce', $referrer = true) {
-            wp_nonce_field($action, $name, $referrer, true);
+            return wp_nonce_field($action, $name, $referrer, false);
         }));
     }
 
