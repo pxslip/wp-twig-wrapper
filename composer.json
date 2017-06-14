@@ -2,7 +2,7 @@
     "name": "pxslip/wp-twig-wrapper",
     "description": "A simple wrapper for the Twig templating engine to make it work in Wordpress plugins",
     "require": {
-        "twig/twig": "^2.4"
+        "twig/twig": "~1.0"
     },
     "license": "MIT",
     "authors": [{
