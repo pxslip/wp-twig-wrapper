@@ -16,7 +16,7 @@ class Twig
      */
     private $twig = null;
 
-    public function __construct($viewpath, $cache = true, $debug = false, array $mappings = [])
+    public function __construct($viewpath, $cache = false, $debug = false, array $mappings = [])
     {
         if (!isset($viewpath)) {
             throw new Exception("The view path must be set");
@@ -24,7 +24,7 @@ class Twig
         $this->twig = new \Twig_Environment(
             new \Twig_Loader_filesystem($viewpath),
             [
-                'cache' => __DIR__ . '/cache',
+                'cache' => $cache,
                 'debug' => $debug,
 
             ]
