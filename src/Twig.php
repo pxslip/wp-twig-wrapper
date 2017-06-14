@@ -43,8 +43,8 @@ class Twig
         $this->twig->addFunction(new Twig_Function('get_option', function ($name) {
             get_option($name);
         }));
-        $this->twig->addFunction(new Twig_Function('the_post_thumbnail', function ($size = 'medium', $attr = '') {
-            the_post_thumbnail($size, $attr);
+        $this->twig->addFunction(new Twig_Function('get_the_post_thumbnail', function ($post, $size = 'medium', $attr = '') {
+            return get_the_post_thumbnail($post, $size, $attr);
         }));
         $this->twig->addFunction(new Twig_Function('setup_postdata', function ($post) {
             setup_postdata($post);
