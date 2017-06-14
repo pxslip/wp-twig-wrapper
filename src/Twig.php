@@ -58,6 +58,9 @@ class Twig
         $this->twig->addFunction(new Twig_SimpleFunction('get_the_title', function ($post = 0) {
             return get_the_title($post);
         }));
+        $this->twig->addFunction(new Twig_SimpleFunction('has_post_thumbnail', function ($post = null) {
+            return has_post_thumbnail($post);
+        }));
     }
 
     public function getTwig()
