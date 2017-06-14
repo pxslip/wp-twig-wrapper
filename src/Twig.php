@@ -55,6 +55,9 @@ class Twig
         $this->twig->addFunction(new Twig_Function('get_post_meta', function ($post, $name, $single) {
             return get_post_meta($post, $name, $single);
         }));
+        $this->twig->addFunction(new Twig_Function('get_the_title', function ($post = 0) {
+            return get_the_title($post);
+        }));
     }
 
     public function getTwig()
