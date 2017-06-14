@@ -22,7 +22,7 @@ class Twig
             throw new Exception("The view path must be set");
         }
         $this->twig = new \Twig_Environment(
-            new \Twig_Loader_filesystem($viewpath),
+            new \Twig_Loader_Filesystem($viewpath),
             [
                 'cache' => $cache,
                 'debug' => $debug,
