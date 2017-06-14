@@ -52,6 +52,9 @@ class Twig
         $this->twig->addFunction(new Twig_Function('wp_nonce_field', function ($action = -1, $name = '_wpnonce', $referrer = true) {
             return wp_nonce_field($action, $name, $referrer, false);
         }));
+        $this->twig->addFunction(new Twig_Function('get_post_meta', function ($post, $name, $single) {
+            return get_post_meta($post, $name, $single);
+        }));
     }
 
     public function getTwig()
