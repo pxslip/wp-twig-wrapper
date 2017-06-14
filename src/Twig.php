@@ -34,28 +34,28 @@ class Twig
 
     private function addWordpressFunctions()
     {
-        $this->twig->addFunction(new Twig_Function('settings_fields', function ($name) {
+        $this->twig->addFunction(new Twig_SimpleFunction('settings_fields', function ($name) {
             settings_fields($name);
         }));
-        $this->twig->addFunction(new Twig_Function('do_settings_sections', function ($name) {
+        $this->twig->addFunction(new Twig_SimpleFunction('do_settings_sections', function ($name) {
             do_settings_sections($name);
         }));
-        $this->twig->addFunction(new Twig_Function('get_option', function ($name) {
+        $this->twig->addFunction(new Twig_SimpleFunction('get_option', function ($name) {
             get_option($name);
         }));
-        $this->twig->addFunction(new Twig_Function('get_the_post_thumbnail', function ($post, $size = 'medium', $attr = '') {
+        $this->twig->addFunction(new Twig_SimpleFunction('get_the_post_thumbnail', function ($post, $size = 'medium', $attr = '') {
             return get_the_post_thumbnail($post, $size, $attr);
         }));
-        $this->twig->addFunction(new Twig_Function('setup_postdata', function ($post) {
+        $this->twig->addFunction(new Twig_SimpleFunction('setup_postdata', function ($post) {
             setup_postdata($post);
         }));
-        $this->twig->addFunction(new Twig_Function('wp_nonce_field', function ($action = -1, $name = '_wpnonce', $referrer = true) {
+        $this->twig->addFunction(new Twig_SimpleFunction('wp_nonce_field', function ($action = -1, $name = '_wpnonce', $referrer = true) {
             return wp_nonce_field($action, $name, $referrer, false);
         }));
-        $this->twig->addFunction(new Twig_Function('get_post_meta', function ($post, $name, $single) {
+        $this->twig->addFunction(new Twig_SimpleFunction('get_post_meta', function ($post, $name, $single) {
             return get_post_meta($post, $name, $single);
         }));
-        $this->twig->addFunction(new Twig_Function('get_the_title', function ($post = 0) {
+        $this->twig->addFunction(new Twig_SimpleFunction('get_the_title', function ($post = 0) {
             return get_the_title($post);
         }));
     }
