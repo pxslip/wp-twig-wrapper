@@ -3,7 +3,7 @@ namespace WPTwig;
 
 use Twig_Environment;
 use Twig_Loader_filesystem;
-use Twig_Function;
+use Twig_SimpleFunction;
 
 /**
  * Manage the Twig set up and teardown
