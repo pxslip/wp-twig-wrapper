@@ -16,7 +16,7 @@ class Twig
      */
     private $twig = null;
 
-    public function __construct($viewpath, $cache = true, $debug = false)
+    public function __construct($viewpath, $cache = true, $debug = false, array $mappings = [])
     {
         if (!isset($viewpath)) {
             throw new Exception("The view path must be set");
@@ -29,7 +29,7 @@ class Twig
 
             ]
         );
-        $this->addWordpressFunctions();
+        $this->addWordpressFunctions($mappings);
     }
 
     private function addWordpressFunctions()
@@ -43,9 +43,7 @@ class Twig
         $this->twig->addFunction(new Twig_Function('get_option', function ($name) {
             get_option($name);
         }));
-        $this->twig->addFunction(new Twig_Function('the_post_thumbnail', function ($size, $attr) {
-            $size = $size ?: 'medium';
-            $attr = $attr ?: '';
+        $this->twig->addFunction(new Twig_Function('the_post_thumbnail', function ($size = 'medium', $attr = '') {
             the_post_thumbnail($size, $attr);
         }));
         $this->twig->addFunction(new Twig_Function('setup_postdata', function ($post) {
