@@ -61,6 +61,9 @@ class Twig
         $this->twig->addFunction(new Twig_SimpleFunction('has_post_thumbnail', function ($post = null) {
             return has_post_thumbnail($post);
         }));
+        $this->twig->addFunction(new Twig_SimpleFunction('has_post_thumbnail', function ($post = null) {
+            return submit_buttons();
+        }));
     }
 
     public function getTwig()
