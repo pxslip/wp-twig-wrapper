@@ -41,7 +41,7 @@ class Twig
             return do_settings_sections($name);
         }));
         $this->twig->addFunction(new Twig_SimpleFunction('get_option', function ($name) {
-            get_option($name);
+            return get_option($name);
         }));
         $this->twig->addFunction(new Twig_SimpleFunction('get_the_post_thumbnail', function ($post, $size = 'medium', $attr = '') {
             return get_the_post_thumbnail($post, $size, $attr);
